@@ -68,7 +68,7 @@ _logger = logging.getLogger(__name__)
 
 class AccountInvoice(models.Model):
 
-    _inherit = 'account.invoice'
+    _inherit = 'account.move'
 
     # Please do not add this field to any view,
     # as the computation is resource-intense
@@ -84,12 +84,11 @@ class AccountInvoice(models.Model):
         compute='_compute_finvoice_xml'
     )
 
-    @api.multi
-    @api.depends('number', 'state')
+    @api.depends('name', 'state')
     def _compute_invoice_number(self):
         for record in self:
-            if record.number:
-                record.invoice_number = re.sub(r'\D', '', record.number)
+            if record.name:
+                record.invoice_number = re.sub(r'\D', '', record.name)
 
     def _compute_finvoice_xml(self):
         for record in self:
