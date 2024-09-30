@@ -137,7 +137,7 @@ class AccountInvoice(models.Model):
         fh.write(xml_declaration)
         fh.close()
 
-        fh = open(file_path, mode='w', encoding="utf-8", errors='replace')
+        fh = open(file_path, mode='wb', encoding=encoding, errors='replace')
         finvoice_object.export(fh, 0, name_='Finvoice', pretty_print=True)
         fh.close()
 
