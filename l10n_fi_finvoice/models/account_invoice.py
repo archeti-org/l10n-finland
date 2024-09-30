@@ -314,7 +314,7 @@ class AccountInvoice(models.Model):
             OriginCode=OriginCode,
             InvoiceNumber=self.invoice_number,
             InvoiceDate=date(
-                'CCYYMMDD', self.get_date_unhyphenated(self.date_invoice)),
+                'CCYYMMDD', self.get_date_unhyphenated(self.invoice_date)),
             OrderIdentifier=self.invoice_number,
             InvoiceTotalVatExcludedAmount=InvoiceTotalVatExcludedAmount,
             InvoiceTotalVatAmount=InvoiceTotalVatAmount,
@@ -514,7 +514,7 @@ class AccountInvoice(models.Model):
         # Returns unhyphenated ISO-8601 date
         # CCYY-MM-DD becomes CCYYMMDD
         # 2020-01-02 becomes 20200102
-        date_string = date_string.strftime("%m-%d-%Y")
+        date_string = date_string.strftime("%Y-%m-%d")
         if not date_string:
             return False
 
