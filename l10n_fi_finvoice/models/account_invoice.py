@@ -121,7 +121,7 @@ class AccountInvoice(models.Model):
 
         return finvoice_object
 
-    def _get_finvoice_xml(self, encoding='ascii'):
+    def _get_finvoice_xml(self, encoding='iso-8859-15'):
         finvoice_object = self._get_finvoice_object()
         xml_declaration = "<?xml version='1.0' encoding='%s'?>\n" % encoding
 
@@ -133,7 +133,7 @@ class AccountInvoice(models.Model):
             os.makedirs(data_dir)
 
         file_path = data_dir + "finvoice_%s.xml" % self.id
-        fh = open(file_path, mode='w')
+        fh = open(file_path, mode='wb')
         fh.write(xml_declaration)
 
         finvoice_object.export(fh, 0, name_='Finvoice', pretty_print=True)
