@@ -404,7 +404,7 @@ class AccountInvoice(models.Model):
     def _get_finvoice_message_receiver_details(self):
         MessageReceiverDetails = MessageReceiverDetailsType(
             ToIdentifier=self.partner_id.edicode,
-            ToIntermediator=self.partner_id.einvoice_operator_identifier,
+            ToIntermediator=self.partner_id.einvoice_operator_id.identifier,
         )
         return MessageReceiverDetails
 
