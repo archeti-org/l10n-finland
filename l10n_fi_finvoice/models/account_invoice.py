@@ -265,7 +265,7 @@ class AccountInvoice(models.Model):
         OriginCode = 'Original'
 
         # Refund invoice
-        if self.type == 'out_refund':
+        if self.move_type == 'out_refund':
             TypeCode = 'INV02'
             CodeListAgencyIdentifier = 'SPY'
             OriginCode = 'Cancel'
