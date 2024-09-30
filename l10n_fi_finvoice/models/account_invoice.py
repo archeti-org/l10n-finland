@@ -297,7 +297,7 @@ class AccountInvoice(models.Model):
         )
 
         PaymentTermsDetails = PaymentTermsDetailsType(
-            PaymentTermsFreeText=[self.payment_term_id.name],
+            PaymentTermsFreeText=[self.invoice_payment_term_id.name],
             InvoiceDueDate=date(
                 'CCYYMMDD', self.get_date_unhyphenated(self.date_due)),
         )
