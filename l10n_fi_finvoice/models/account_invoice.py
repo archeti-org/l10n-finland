@@ -121,7 +121,7 @@ class AccountInvoice(models.Model):
 
         return finvoice_object
 
-    def _get_finvoice_xml(self, encoding='ISO-8859-15'):
+    def _get_finvoice_xml(self, encoding='iso8859-15'):
         finvoice_object = self._get_finvoice_object()
         xml_declaration = "<?xml version='1.0' encoding='%s'?>\n" % encoding
 
@@ -514,10 +514,11 @@ class AccountInvoice(models.Model):
         # Returns unhyphenated ISO-8601 date
         # CCYY-MM-DD becomes CCYYMMDD
         # 2020-01-02 becomes 20200102
-        date_string = date_string.strftime("%Y-%m-%d")
+
         if not date_string:
             return False
 
+        date_string = date_string.strftime("%Y-%m-%d")
         # This only validates the format.
         # Not if the string is actually a valid date
         iso_8601_format = re.compile('[0-9]{4}[-][0-9]{2}[-][0-9]{2}')
