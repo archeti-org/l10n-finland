@@ -133,9 +133,11 @@ class AccountInvoice(models.Model):
             os.makedirs(data_dir)
 
         file_path = data_dir + "finvoice_%s.xml" % self.id
-        fh = open(file_path, mode='wb')
+        fh = open(file_path, mode='w')
         fh.write(xml_declaration)
+        fh.close()
 
+        fh = open(file_path, mode='wb')
         finvoice_object.export(fh, 0, name_='Finvoice', pretty_print=True)
         fh.close()
 
