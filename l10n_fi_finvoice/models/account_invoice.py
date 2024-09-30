@@ -299,7 +299,7 @@ class AccountInvoice(models.Model):
         PaymentTermsDetails = PaymentTermsDetailsType(
             PaymentTermsFreeText=[self.invoice_payment_term_id.name],
             InvoiceDueDate=date(
-                'CCYYMMDD', self.get_date_unhyphenated(self.date_due)),
+                'CCYYMMDD', self.get_date_unhyphenated(self.invoice_date_due)),
         )
 
         PaymentOverDueFineDetails = PaymentOverDueFineDetailsType(
@@ -471,7 +471,7 @@ class AccountInvoice(models.Model):
             EpiInstructedAmount=EpiInstructedAmount,
             EpiCharge=EpiCharge,
             EpiDateOptionDate=date(
-                'CCYYMMDD', self.get_date_unhyphenated(self.date_due)),
+                'CCYYMMDD', self.get_date_unhyphenated(self.invoice_date_due)),
         )
 
         return EpiPaymentInstructionDetails
