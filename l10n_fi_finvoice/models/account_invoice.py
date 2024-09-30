@@ -341,7 +341,7 @@ class AccountInvoice(models.Model):
 
         for line in self.invoice_line_ids:
             DeliveredQuantity = QuantityType(
-                QuantityUnitCode=line.uom_id.name,
+                QuantityUnitCode=line.product_uom_id.name,
                 valueOf_=line.quantity,
             )
 
