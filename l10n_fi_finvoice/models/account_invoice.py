@@ -229,7 +229,7 @@ class AccountInvoice(models.Model):
         )
 
         BuyerPartyDetails = BuyerPartyDetailsType(
-            BuyerPartyIdentifier=partner.business_id,
+            BuyerPartyIdentifier=partner.business_code,
             BuyerOrganisationName=[partner.name],
             BuyerOrganisationDepartment='',
             BuyerOrganisationTaxCode=partner.vat,
@@ -250,7 +250,7 @@ class AccountInvoice(models.Model):
         )
 
         DeliveryPartyDetails = DeliveryPartyDetailsType(
-            DeliveryPartyIdentifier=partner.business_id,
+            DeliveryPartyIdentifier=partner.business_code,
             DeliveryOrganisationName=[partner.name],
             DeliveryPostalAddressDetails=DeliveryPostalAddressDetails,
         )
