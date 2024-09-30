@@ -121,7 +121,7 @@ class AccountInvoice(models.Model):
 
         return finvoice_object
 
-    def _get_finvoice_xml(self, encoding='iso8859-15'):
+    def _get_finvoice_xml(self, encoding='ascii'):
         finvoice_object = self._get_finvoice_object()
         xml_declaration = "<?xml version='1.0' encoding='%s'?>\n" % encoding
 
