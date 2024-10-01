@@ -139,7 +139,7 @@ class AccountInvoice(models.Model):
 
         #fh = open(file_path, mode='w', encoding='ascii', errors='ignore')
         #finvoice_object.export(fh, 0, name_='Finvoice', pretty_print=True)
-        with open(file_path, "w", encoding=encoding, errors='replace') as fh:
+        with open(file_path, "w", encoding="ascii", errors='replace') as fh:
             finvoice_object.export(fh, 0, name_='Finvoice', pretty_print=True)
         fh.close()
 
